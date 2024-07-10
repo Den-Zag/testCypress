@@ -1,78 +1,78 @@
+import { CommonElement } from '../utils/elements';
+
 class MainPage {
   aboutHeaderBtn = '[appscrollto="aboutSection"]';
   contactsHeaderBtn = '[appscrollto="contactsSection"]';
   guestLogInHeaderBtn = '.header_right > .header-link';
   signInHeaderBtn = '.header_right > .btn';
-  facebookSelector = '[href="https://www.facebook.com/Hillel.IT.School"]';
+  facebookSelector = '.socials_icon.icon.icon-facebook';
   facebookLink = 'https://www.facebook.com/Hillel.IT.School';
-  telegramSelector = '[href="https://t.me/ithillel_kyiv"]';
+  telegramSelector = '.socials_icon.icon.icon-telegram';
   telegramLink = 'https://t.me/ithillel_kyiv';
-  youtubeSelector =
-    '[href="https://www.youtube.com/user/HillelITSchool?sub_confirmation=1"]';
-  youtubeLink =
-    'https://www.youtube.com/user/HillelITSchool?sub_confirmation=1';
-  instagramSelector = '[href="https://www.instagram.com/hillel_itschool/"]';
+  youtubeSelector = '.socials_icon.icon.icon-youtube';
+  youtubeLink = 'https://www.youtube.com/user/HillelITSchool?sub_confirmation=1';
+  instagramSelector = '.socials_icon.icon.icon-instagram';
   instagramLink = 'https://www.instagram.com/hillel_itschool/';
-  linkedinSelector = '[href="https://www.linkedin.com/school/ithillel/"]';
+  linkedinSelector = '.socials_icon.icon.icon-linkedin';
   linkedinLink = 'https://www.linkedin.com/school/ithillel/';
-  ithillelLogoSelector = '.display-4';
+  ithillelLogoSelector = '.contacts_link.display-4';
   ithillelLogoLink = 'https://ithillel.ua';
-  mailtoSelector = '.h4';
+  mailtoSelector = '.contacts_link.h4';
   mailtoMail = 'mailto:developer@ithillel.ua';
 
   getAboutHeaderBtn() {
-    return cy.get(this.aboutHeaderBtn);
+    return new CommonElement(this.aboutHeaderBtn);
   }
   getContactsHeaderBtn() {
-    return cy.get(this.contactsHeaderBtn);
+    return new CommonElement(this.contactsHeaderBtn);
   }
   getGuestLogInHeaderBtn() {
-    return cy.get(this.guestLogInHeaderBtn);
+    return new CommonElement(this.guestLogInHeaderBtn);
   }
   getSignInHeaderBtnn() {
-    return cy.get(this.signInHeaderBtn);
+    return new CommonElement(this.signInHeaderBtn);
   }
   getFacebookSelector() {
-    return cy.get(this.facebookSelector);
+    return new CommonElement(this.facebookSelector);
   }
   getFacebookLink() {
-    return cy.get(this.facebookLink);
+    return new CommonElement(this.facebookLink);
   }
   getTelegramSelector() {
-    return cy.get(this.telegramSelector);
+    return new CommonElement(this.telegramSelector);
   }
   getTelegramLink() {
-    return cy.get(this.telegramLink);
+    return new CommonElement(this.telegramLink);
   }
   getYoutubeSelector() {
     return this.youtubeSelector;
   }
   getYoutubeLink() {
-    return cy.get(this.youtubeLink);
+    return new CommonElement(this.youtubeLink);
   }
   getInstagramSelector() {
-    return cy.get(this.instagramSelector);
+    return new CommonElement(this.instagramSelector);
   }
   getInstagramLink() {
-    return cy.get(this.instagramLink);
+    return new CommonElement(this.instagramLink);
   }
   getLinkedinSelector() {
-    return cy.get(this.linkedinSelector);
+    return new CommonElement(this.linkedinSelector);
   }
   getLinkedinLink() {
-    return cy.get(this.linkedinLink);
+    return new CommonElement(this.linkedinLink);
   }
   getIthillelLogoSelector() {
-    return cy.get(this.ithillelLogoSelector);
+    return new CommonElement(this.ithillelLogoSelector);
   }
   getIthillelLogoLink() {
-    return cy.get(this.ithillelLogoLink);
+    return new CommonElement(this.ithillelLogoLink);
   }
   getMailtoMailSelector() {
-    return cy.get(this.mailtoSelector);
+    return new CommonElement(this.mailtoSelector);
   }
   getMailtoMail() {
-    return cy.get(this.mailtoMail);
+    return new CommonElement(this.mailtoMail);
   }
 }
 
