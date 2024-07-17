@@ -41,6 +41,14 @@ export class CommonElement {
     this.element.first().focus()
     return this
   }
+
+
+
+
+
+
+
+
   borderColor(value){
     this.element.should('have.css', 'border-color', 'rgb(92, 179, 253)')
     return this

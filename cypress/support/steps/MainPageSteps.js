@@ -18,150 +18,93 @@ const MainPageSteps = {
   },
 
   // Registrierungsformular - Name
-  RegistrationFormNameEmpty() {
-    mainePage.getRegistrationFormName().firstFocus().borderColor()
+  RegistrationFormNameImputEmpty() {
+    mainePage.getRegistrationFormName().clickElement().borderColor()
     mainePage.getRegistrationFormName().removeFocus()
-    mainePage.getRegistrationFormName().borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Name required')
   },
-  RegistrationFormNameTwoLetters() {
-    mainePage.getRegistrationFormName().enterValue('dE').borderColor()
+  RegistrationFormNameImput(value) {
+    mainePage.getRegistrationFormName().enterValue(value).borderColor()
+    mainePage.getRegistrationFormName().removeFocus()
+  },
+  RegistrationFormNameCheckValidationPositive() {
     mainePage.getRegistrationFormValidationError().checkElementAbsence()
   },
-  RegistrationFormName20Letters() {
-    mainePage.getRegistrationFormName().enterValue('Teeeeeeeeeeeeeeeeeee').borderColor()
-    mainePage.getRegistrationFormValidationError().checkElementAbsence()
-  },
-  RegistrationFormNameOneLetter() {
-    mainePage.getRegistrationFormName().enterValue('T').borderColorErrore()
+  RegistrationFormNameCheckValidationNegative(value) {
     mainePage.getRegistrationFormName().borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Name has to be from 2 to 20 characters long')
+    mainePage.getRegistrationFormValidationError().chekingText(value)
   },
-  RegistrationFormName21Letters() {
-    mainePage.getRegistrationFormName().enterValue('Teeeeeeeeeeeeeeeeeeea').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Name has to be from 2 to 20 characters long')
-  },
-  RegistrationFormNameIsNotValidWithSpace() {
-    mainePage.getRegistrationFormName().enterValue('De ').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Name is invalid')
-  },
-  RegistrationFormNameIsNotValidWithNumber() {
-    mainePage.getRegistrationFormName().enterValue('Te1').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Name is invalid')
-  },
-  RegistrationFormNameIsNotValidWithSpecialCharacters() {
-    mainePage.getRegistrationFormName().enterValue('J@').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Name is invalid')
-  },
-  RegistrationFormNameIsValid() {
-    mainePage.getRegistrationFormName().borderColorErrore()
-    mainePage.getRegistrationFormName().enterValue('Denys').borderColor()
-    mainePage.getRegistrationFormValidationError().checkElementAbsence()
-  },
+
   // Registrierungsformular - Last name
-  RegistrationFormLastNameEmpty() {
-    mainePage.getRegistrationFormLastName().firstFocus().borderColor()
+  RegistrationFormLastNameImputEmpty() {
+    mainePage.getRegistrationFormLastName().clickElement().borderColor()
     mainePage.getRegistrationFormLastName().removeFocus()
-    mainePage.getRegistrationFormLastName().borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Last name required')
   },
-  RegistrationFormLastNameTwoLetters() {
-    mainePage.getRegistrationFormLastName().enterValue('dE').borderColor()
+  RegistrationFormLastNameImput(value) {
+    mainePage.getRegistrationFormLastName().enterValue(value).borderColor()
+    mainePage.getRegistrationFormLastName().removeFocus()
+  },
+  RegistrationFormLastNameCheckValidationPositive() {
     mainePage.getRegistrationFormValidationError().checkElementAbsence()
   },
-  RegistrationFormLastName20Letters() {
-    mainePage.getRegistrationFormLastName().enterValue('Teeeeeeeeeeeeeeeeeee').borderColor()
-    mainePage.getRegistrationFormValidationError().checkElementAbsence()
-  },
-  RegistrationFormLastNameOneLetter() {
-    mainePage.getRegistrationFormLastName().enterValue('T').borderColorErrore()
+  RegistrationFormLastNameCheckValidationNegative(value) {
     mainePage.getRegistrationFormLastName().borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Last name has to be from 2 to 20 characters long')
+    mainePage.getRegistrationFormValidationError().chekingText(value)
   },
-  RegistrationFormLastName21Letters() {
-    mainePage.getRegistrationFormLastName().enterValue('Teeeeeeeeeeeeeeeeeeea').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Last name has to be from 2 to 20 characters long')
-  },
-  RegistrationFormLastNameIsNotValidWithSpace() {
-    mainePage.getRegistrationFormLastName().enterValue('De ').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Last name is invalid')
-  },
-  RegistrationFormLastNameIsNotValidWithNumber() {
-    mainePage.getRegistrationFormLastName().enterValue('Te1').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Last name is invalid')
-  },
-  RegistrationFormLastNameIsNotValidWithSpecialCharacters() {
-    mainePage.getRegistrationFormLastName().enterValue('J@').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Last name is invalid')
-  },
-  RegistrationFormLastNameIsValid() {
-    mainePage.getRegistrationFormLastName().borderColorErrore()
-    mainePage.getRegistrationFormLastName().enterValue('Zagrebelnyi').borderColor()
-    mainePage.getRegistrationFormValidationError().checkElementAbsence()
-  },
+
   // Registrierungsformular - Email
-  RegistrationFormEmailValidationError() {
+  RegistrationFormLastEmailImputEmpty() {
     mainePage.getRegistrationFormEmail().firstFocus().borderColor()
     mainePage.getRegistrationFormEmail().removeFocus()
-    mainePage.getRegistrationFormEmail().borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Email required')
-    mainePage.getRegistrationFormEmail().enterValue('denzagrebelnyigmail.com').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Email is incorrect')
-    mainePage.getRegistrationFormEmail().enterValue('denzagrebelnyi@gmailcom').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Email is incorrect')
-    mainePage.getRegistrationFormEmail().enterValue('denzagrebelnyi@.com').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Email is incorrect')
-    mainePage.getRegistrationFormEmail().enterValue('@gmail.com').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Email is incorrect')
-    mainePage.getRegistrationFormEmail().enterValue('denzagrebelnyi@gmail.').borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Email is incorrect')
   },
-  RegistrationFormEmailIsValid() {
-    mainePage.getRegistrationFormEmail().enterValue('denzagrebelnyi@gmail.com').borderColor()
+  RegistrationFormEmailImput(value) {
+    mainePage.getRegistrationFormEmail().enterValue(value).borderColor()
+    mainePage.getRegistrationFormEmail().removeFocus()
+  },
+  RegistrationFormEmailCheckValidationPositive() {
     mainePage.getRegistrationFormValidationError().checkElementAbsence()
   },
+  RegistrationFormEmailCheckValidationNegative(value) {
+    mainePage.getRegistrationFormEmail().borderColorErrore()
+    mainePage.getRegistrationFormValidationError().chekingText(value)
+  },
+
   // Registrierungsformular - Password 
-  RegistrationFormPasswordValidationError() {
+  RegistrationFormPasswordImputEmpty() {
     mainePage.getRegistrationFormPassword().firstFocus().borderColor()
     mainePage.getRegistrationFormPassword().removeFocus()
+  },
+  RegistrationFormPasswordImput(value) {
+    mainePage.getRegistrationFormPassword().enterValue(value).borderColor()
+    mainePage.getRegistrationFormPassword().removeFocus()
+  },
+  RegistrationFormPasswordCheckValidationPositive() {
+    mainePage.getRegistrationFormValidationError().checkElementAbsence()
+  },
+  RegistrationFormPasswordCheckValidationNegative(value) {
     mainePage.getRegistrationFormPassword().borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Password required')
-// mainePage.validatePasswordInputAll(mainePage.getRegistrationFormPassword()) --- ????
-    mainePage.validatePasswordInput(mainePage.getRegistrationFormPassword().enterValue('test@de1'))
-    mainePage.validatePasswordInput(mainePage.getRegistrationFormPassword().enterValue('Test@Denghndbsvgldy'))
-    mainePage.validatePasswordInput(mainePage.getRegistrationFormPassword().enterValue('TEST@DE1GHJHKJLKKBHV'))
-    mainePage.validatePasswordInput(mainePage.getRegistrationFormPassword().enterValue('Tet@De1'))
-    mainePage.validatePasswordInput(mainePage.getRegistrationFormPassword().enterValue('Test@De1vHc3vB4h'))
+    mainePage.getRegistrationFormValidationError().chekingText(value)
   },
-  RegistrationFormPasswordIsValid() {
-    mainePage.getRegistrationFormPassword().enterValue('Test@De1').borderColor
-    mainePage.getRegistrationFormValidationError().checkElementAbsence()
-    mainePage.getRegistrationFormPassword().enterValue('Test3De1vHc3vB4').borderColor
-    mainePage.getRegistrationFormValidationError().checkElementAbsence()
-  },
-  // Registrierungsformular - Password 
-  RegistrationFormRePasswordValidationError(){
+  
+  // Registrierungsformular - Re Password 
+  RegistrationFormRePasswordImputEmpty() {
     mainePage.getRegistrationFormRePassword().firstFocus().borderColor()
     mainePage.getRegistrationFormRePassword().removeFocus()
-    mainePage.getRegistrationFormRePassword().borderColorErrore()
-    mainePage.getRegistrationFormValidationError().chekingText('Re-enter password required')
-    // mainePage.validatePasswordInputAll(mainePage.getRegistrationFormRePassword()) --- ????
-    mainePage.validatePasswordInput(mainePage.getRegistrationFormRePassword().enterValue('test@de1'))
-    mainePage.validatePasswordInput(mainePage.getRegistrationFormRePassword().enterValue('Test@Denghndbsvgldy'))
-    mainePage.validatePasswordInput(mainePage.getRegistrationFormRePassword().enterValue('TEST@DE1GHJHKJLKKBHV'))
-    mainePage.validatePasswordInput(mainePage.getRegistrationFormRePassword().enterValue('Tet@De1'))
-    mainePage.validatePasswordInput(mainePage.getRegistrationFormRePassword().enterValue('Test@De1vHc3vB4h'))
-    mainePage.getRegistrationFormPassword().enterValue('Test@De1j3b').borderColor
-    mainePage.getRegistrationFormRePassword().enterValue('Test@De1j3a').borderColor
-    mainePage.getRegistrationFormValidationError().chekingText('Passwords do not match')
-    mainePage.getRegistrationFormRePassword().borderColorErrore()
   },
-  RegistrationFormRePasswordIsValid() {
-    mainePage.getRegistrationFormPassword().enterValue('Test@De1j3b').borderColor
-    mainePage.getRegistrationFormRePassword().enterValue('Test@De1j3b').borderColor
+  RegistrationFormRePasswordImput(value) {
+    mainePage.getRegistrationFormRePassword().enterValue(value).borderColor()
+    mainePage.getRegistrationFormRePassword().removeFocus()
+  },
+  RegistrationFormRePasswordCheckValidationPositive() {
     mainePage.getRegistrationFormValidationError().checkElementAbsence()
   },
-  // Registrierungsformular - Password 
+  RegistrationFormRePasswordCheckValidationNegative(value) {
+    mainePage.getRegistrationFormRePassword().borderColorErrore()
+    mainePage.getRegistrationFormValidationError().chekingText(value)
+  },
+
+
+
+  // Registrierungsformular  
   RegistrationFormRegisterBtn() {
     mainePage.getRegistrationFormRegisterBtn().isVisible()
     mainePage.getRegistrationFormRegisterBtn().verifyIsDisabled()
@@ -178,6 +121,8 @@ const MainPageSteps = {
     mainePage.getRegistrationFormRegisterBtn().clickElement()
     mainePage.getRegistrationFormValidationErrorAfterClickingOnfRegister().chekingText('User already exists')
   },
+
+  
   CreateNewAccount(name, lastName, mail, password) {
     mainePage.getRegistrationFormName().enterValue(name)
     mainePage.getRegistrationFormLastName().enterValue(lastName)
