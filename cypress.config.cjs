@@ -12,7 +12,7 @@ module.exports = defineConfig({
   videosFolder: 'video',
   video: false,
   e2e: {
-    baseUrl: 'https://guest:welcome2qauto@qauto2.forstudy.space/',
+    baseUrl: 'https://guest:welcome2qauto@qauto.forstudy.space/',
     setupNodeEvents(on, config) {
       //on('test:after:run')
     },
