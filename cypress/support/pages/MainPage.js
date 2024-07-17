@@ -1,10 +1,15 @@
 import { CommonElement } from '../utils/elements';
+import { InputField } from '../utils/elements';
 
 class MainPage {
+  // HeaderBtn
   aboutHeaderBtn = '[appscrollto="aboutSection"]';
   contactsHeaderBtn = '[appscrollto="contactsSection"]';
   guestLogInHeaderBtn = '.header_right > .header-link';
   signInHeaderBtn = '.header_right > .btn';
+  signInBtn = ".hero-descriptor_btn"
+  registrationBtn = "div[class='modal-footer d-flex justify-content-between'] button:nth-child(1)";
+  // Links
   facebookSelector = '.socials_icon.icon.icon-facebook';
   facebookLink = 'https://www.facebook.com/Hillel.IT.School';
   telegramSelector = '.socials_icon.icon.icon-telegram';
@@ -19,6 +24,16 @@ class MainPage {
   ithillelLogoLink = 'https://ithillel.ua';
   mailtoSelector = '.contacts_link.h4';
   mailtoMail = 'mailto:developer@ithillel.ua';
+  //Elements registration form
+  name = "#signupName"
+  lastName = "#signupLastName"
+  email = "#signupEmail"
+  password = "#signupPassword"
+  rePassword = "#signupRepeatPassword"
+  registerBtn = ".modal-footer > .btn"
+  errorNameCharacterLength  = "div[class='invalid-feedback'] p"
+  ValidationErrorAfterClickingOnfRegister  = '.alert.alert-danger'
+
 
   getAboutHeaderBtn() {
     return new CommonElement(this.aboutHeaderBtn);
@@ -29,8 +44,14 @@ class MainPage {
   getGuestLogInHeaderBtn() {
     return new CommonElement(this.guestLogInHeaderBtn);
   }
-  getSignInHeaderBtnn() {
+  getSignInHeaderBtn() {
     return new CommonElement(this.signInHeaderBtn);
+  }
+  getSignInBtn() {
+    return new CommonElement(this.signInBtn);
+  }
+  getRegistrationBtn() {
+    return new CommonElement(this.registrationBtn);
   }
   getFacebookSelector() {
     return new CommonElement(this.facebookSelector);
@@ -69,11 +90,49 @@ class MainPage {
     return new CommonElement(this.ithillelLogoLink);
   }
   getMailtoMailSelector() {
-    return new CommonElement(this.mailtoSelector);
+    return new CommonElement(this.mailtoSelector);yfgsc
   }
   getMailtoMail() {
     return new CommonElement(this.mailtoMail);
   }
+  // Elements registration form
+  getRegistrationFormName() {
+    return new InputField(this.name)
+  }
+  getRegistrationFormLastName() {
+    return new InputField(this.lastName)
+  }
+  getRegistrationFormEmail() {
+    return new InputField(this.email)
+  }
+  getRegistrationFormPassword() {
+    return new InputField(this.password)
+  }
+  getRegistrationFormRePassword() {
+    return new InputField(this.rePassword)
+  }
+  getRegistrationFormRegisterBtn() {
+    return new CommonElement(this.registerBtn)
+  }
+  getRegistrationFormValidationError(){
+    return new InputField(this.errorNameCharacterLength) // ValidationErrorAfterClickingOnfRegister
+  }
+  getRegistrationFormValidationErrorAfterClickingOnfRegister(){
+    return new InputField(this.ValidationErrorAfterClickingOnfRegister)
+  }
+  validatePasswordInput(password) {
+    const message = 'Password has to be from 8 to 15 characters long and contain at least one integer, one capital, and one small letter'
+    password.borderColorErrore();
+    this.getRegistrationFormValidationError().chekingText(message);
+  }
+  // validatePasswordInputAll(element) {
+  //   this.validatePasswordInput(element.enterValue('test@de1'), message)
+  //   this.validatePasswordInput(element.enterValue('Test@Denghndbsvgldy'), message)
+  //   this.validatePasswordInput(element.enterValue('TEST@DE1GHJHKJLKKBHV'), message)
+  //   this.validatePasswordInput(element.enterValue('Tet@De1'), message)
+  //   this.validatePasswordInput(element.enterValue('Test@De1vHc3vB4h'), message)
+  // }
+
 }
 
 const mainePage = new MainPage();
