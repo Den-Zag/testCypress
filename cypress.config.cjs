@@ -1,4 +1,5 @@
-const { defineConfig } = require ("cypress");
+const { defineConfig } = require('cypress');
+const fs = require('fs');
 
 module.exports = defineConfig({
   watchForFileChanges: false,
@@ -11,10 +12,40 @@ module.exports = defineConfig({
   screenshotsFolder: 'screenshots',
   videosFolder: 'video',
   video: false,
+  hosts: {
+    'staging.acme.co': '127.0.0.1',
+    'acme.co': '127.0.0.1',
+  },
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: false,
+    json: true
+  },
   e2e: {
-    baseUrl: 'https://guest:welcome2qauto@qauto.forstudy.space/',
+    supportFile: false,
+    fixturesFolder: false,
     setupNodeEvents(on, config) {
-      //on('test:after:run')
+      const environmentName = config.env.environmentName || 'local';
+      const environmentFilename = `./cypress/config/${environmentName}.settings.json`;
+      console.log('loading %s', environmentFilename);
+      
+      if (fs.existsSync(environmentFilename)) {
+        const settings = require(environmentFilename);
+        // Merge the settings with the config object
+        return {
+          ...config,
+          ...settings,
+          e2e: {
+            ...config.e2e,
+            baseUrl: settings.baseUrl || config.e2e.baseUrl,
+          },
+        };
+      } else {
+        console.error(`Configuration file ${environmentFilename} not found`);
+        return config;
+      }
     },
   },
 });
