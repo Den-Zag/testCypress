@@ -1,5 +1,4 @@
 import { CommonElement } from '../utils/elements';
-import { InputField } from '../utils/elements';
 
 class MainPage {
   // HeaderBtn
@@ -97,28 +96,28 @@ class MainPage {
   }
   // Elements registration form
   getRegistrationFormName() {
-    return new InputField(this.name)
+    return new CommonElement(this.name)
   }
   getRegistrationFormLastName() {
-    return new InputField(this.lastName)
+    return new CommonElement(this.lastName)
   }
   getRegistrationFormEmail() {
-    return new InputField(this.email)
+    return new CommonElement(this.email)
   }
   getRegistrationFormPassword() {
-    return new InputField(this.password)
+    return new CommonElement(this.password)
   }
   getRegistrationFormRePassword() {
-    return new InputField(this.rePassword)
+    return new CommonElement(this.rePassword)
   }
   getRegistrationFormRegisterBtn() {
     return new CommonElement(this.registerBtn)
   }
   getRegistrationFormValidationError(){
-    return new InputField(this.errorNameCharacterLength) // ValidationErrorAfterClickingOnfRegister
+    return new CommonElement(this.errorNameCharacterLength) // ValidationErrorAfterClickingOnfRegister
   }
   getRegistrationFormValidationErrorAfterClickingOnfRegister(){
-    return new InputField(this.ValidationErrorAfterClickingOnfRegister)
+    return new CommonElement(this.ValidationErrorAfterClickingOnfRegister)
   }
   validatePasswordInput(password) {
     const message = 'Password has to be from 8 to 15 characters long and contain at least one integer, one capital, and one small letter'

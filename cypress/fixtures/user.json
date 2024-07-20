@@ -3,7 +3,26 @@
   "user1": {
     "firstName": "Den",
     "lastName": "Zagrebelnyi",
-    "email": "denzag.user1.v3@gmail.com",
+    "email": "denzag.user1.v1@gmail.com",
+    "password": "Test12345"
+  },
+  "user2": {
+    "firstName": "Den",
+    "lastName": "Zagrebelnyi",
+    "email": "denzag.user1.v2@gmail.com",
+    "password": "Test12345"
+  },
+  
+  "user3": {
+    "firstName": "Den",
+    "lastName": "Zagrebelnyi",
+    "email": "denzag.user1.v19.1@gmail.com",
+    "password": "Test12345"
+  },
+  "user4": {
+    "firstName": "Den",
+    "lastName": "Zag",
+    "email": "denzag.user1.v19.2@gmail.com",
     "password": "Test12345"
   }
 }
