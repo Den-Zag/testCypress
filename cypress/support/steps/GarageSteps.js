@@ -31,6 +31,15 @@ const GarageSteps = {
   errorMileageFieldisVisible(value) {
     garage.getErrorMileage().isVisible()
     garage.getErrorMileage().chekingText(value)
+  },
+
+  checkAddCarReq(brandId, modelId, mileage){
+    cy.intercept('POST', 'api/cars', (req)=>{
+      expect(req.body.carBrandId).to.eq(brandId)
+      expect(req.body.carModelId).to.eq(modelId)
+      expect(req.body.mileage).to.eq(mileage)
+      // console.log(req.body.carBrandId)
+    })
   }
 }
 
